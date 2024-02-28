@@ -1,12 +1,16 @@
 import ProductCard from "./ProductCard";
+import { products } from "../constant/Products";
 
 export default function ProductCardContainer() {
   return (
     <>
       <h1>Discover Your Favorites</h1>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {products.map(
+        (product) =>
+          product.isInStock && (
+            <ProductCard key={product.name} product={product} />
+          )
+      )}
     </>
   );
 }
